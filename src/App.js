@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import TodoHead from './components/TodoHead'
+import TodoTemplate from './components/TodoTemplate';
+import TodoCreate from './components/TodoCreate';
+import TodoList from './components/TodoList';
+import { createGlobalStyle } from "styled-components";
+import { TodoProvider } from './TodoContext';
+import { BrowserRouter , Routes , Route   } from 'react-router-dom';
+import Side from './page/Side'
+
+
+const GlobalStyle = createGlobalStyle`
+body{
+ background-color: gray;
+}
+`
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+<>
+<BrowserRouter>
+  <TodoProvider>
+    <GlobalStyle/>
+    <TodoTemplate>
+      <TodoHead>
+      <Routes>
+         <Route path='/' element={<App/>} />
+         <Route path='/side' element={<Side/>} />
+      </Routes>
+      </TodoHead>
+      <TodoList/>
+      <TodoCreate/>
+    </TodoTemplate>
+  </TodoProvider>
+</BrowserRouter>
+</>
   );
 }
-
+ 
 export default App;
