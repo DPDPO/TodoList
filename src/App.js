@@ -7,6 +7,7 @@ import { createGlobalStyle } from "styled-components";
 import { TodoProvider } from './TodoContext';
 import { BrowserRouter , Routes , Route   } from 'react-router-dom';
 import Side from './page/Side'
+import Footer from './components/Footer';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -33,6 +34,7 @@ function App() {
       <TodoCreate/>
     </TodoTemplate>
   </TodoProvider>
+  <Footer/>
 </BrowserRouter>
 </>
   );
