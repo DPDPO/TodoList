@@ -8,7 +8,7 @@ const styled = {
 }
     return (
         <footer style={styled}>
-            psc
+            2022/psc 
         </footer>
     )
 }
